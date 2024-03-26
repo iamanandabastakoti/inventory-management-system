@@ -8,10 +8,11 @@ export default {
         Roboto: ["Roboto", "sans-serif"],
       },
       colors: {
-        primaryBg: "#f8f7ff",
-        primaryText: "#000814",
+        primaryBg: "#000814",
+        primaryText: "#f8f7ff",
         navbarBg: "#03045E",
         buttonBg: "#7400b8",
+        borderColor: "#F5F5F5",
       },
     },
   },
