@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const ProductCard = ({ name, image, category, price }) => {
+const ProductCard = ({ id, name, image, category, price }) => {
     return (
-        <div className='flex flex-col w-80 min-h-40 overflow-hidden bg-white gap-1'>
+        <Link to={'/products/' + id} className='flex flex-col w-80 min-h-40 overflow-hidden object-contain p-2 rounded-lg gap-1 hover:scale-105 duration-300 relative z-40'>
             <img className='' src={image} alt="" />
             <div className='flex flex-col justify-between gap-2 mx-2'>
                 <div className='flex flex-col'>
@@ -11,7 +12,7 @@ const ProductCard = ({ name, image, category, price }) => {
                 </div>
                 <span className='text-xl font-bold font-Roboto'>${price}</span>
             </div>
-        </div>
+        </Link>
     )
 }
 
