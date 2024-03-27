@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import SingleProduct from './pages/SingleProduct'
+import AddProduct from './pages/AddProduct'
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
         <Routes>
           <Route index element={<Home />} />
           <Route path='/products/:productID' element={<SingleProduct />} />
+          <Route path='/addproduct' element={<AddProduct />} />
         </Routes>
       </div>
     </div>

@@ -9,9 +9,9 @@ const Navbar = () => {
                     <img className='w-10 h-10' src="/cart.webp" alt="" />
                     <h1 className='text-xl'>Meropasal Inventory</h1>
                 </Link>
-                <div className='text-md rounded-lg p-2 font-bold cursor-pointer border-2 border-primaryText relative hover:scale-110 duration-200 bg-primaryText text-buttonBg hover:bg-navbarBg hover:text-primaryText '>
-                    Add Item
-                </div>
+                <Link to='/addproduct' className='text-md rounded-lg p-2 font-bold cursor-pointer border-2 border-primaryText relative hover:scale-110 duration-200 bg-primaryText text-buttonBg hover:bg-navbarBg hover:text-primaryText '>
+                    Add Product
+                </Link>
             </div>
         </div>
     )

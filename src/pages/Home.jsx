@@ -16,7 +16,7 @@ const Home = () => {
             {
                 products.map(({ id, name, image, category, price }) => {
                     return (
-                        <ProductCard id={id} name={name} image={image} category={category} price={price} />
+                        <ProductCard key={id} id={id} name={name} image={image} category={category} price={price} />
                     )
                 })
             }
