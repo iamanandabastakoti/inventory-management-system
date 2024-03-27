@@ -1,15 +1,24 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Button from '../components/Button';
 
 const SingleProduct = () => {
     const { productID } = useParams();
+    const navigate = useNavigate();
     // console.log(productID)
     const [singleProductData, setSingleProductData] = useState([]);
     const fetchSingleProduct = async () => {
         const response = await axios.get(`https://${import.meta.env.VITE_API_KEY}.mockapi.io/products/${productID}`);
         setSingleProductData(response.data);
+    }
+    const deleteProduct = async () => {
+        const response = await axios.delete(`https://${import.meta.env.VITE_API_KEY}.mockapi.io/products/${productID}`);
+        if (response.status === 200) {
+            navigate('/');
+        } else {
+            alert('Error deleting the product');
+        }
     }
     useEffect(() => {
         fetchSingleProduct();
@@ -26,7 +35,7 @@ const SingleProduct = () => {
                         <span className='text-2xl font-bold'>${singleProductData.price}</span>
                     </div>
                     <div className='flex gap-6 justify-center'>
-                        <Button btnName={'Delete Product'} deleteBtn={true} />
+                        <Button btnName={'Delete Product'} deleteBtn={true} btnFunc={deleteProduct} />
                         <Button btnName={'Update Product'} deleteBtn={false} />
                     </div>
                 </div>
