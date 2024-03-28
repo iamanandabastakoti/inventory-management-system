@@ -8,6 +8,7 @@ import UpdateProduct from './pages/UpdateProduct'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './components/Footer'
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/updateproduct/:productID' element={<UpdateProduct />} />
         </Routes>
       </div>
+      <Footer />
       <ToastContainer
         position="bottom-right"
         autoClose={3000}
