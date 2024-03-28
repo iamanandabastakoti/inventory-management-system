@@ -28,6 +28,9 @@ const AddProduct = () => {
             alert('Error adding the product');
         }
     }
+    const cancelAddProduct = () => {
+        navigate('/');
+    }
     return (
         <div className='flex justify-center w-full'>
             <form className='w-2/5 flex flex-col gap-4 p-1' onSubmit={addProduct}>
@@ -51,9 +54,12 @@ const AddProduct = () => {
                     <label htmlFor="price">Price (in $)</label>
                     <input className='border border-buttonBg rounded-lg w-full p-2 focus:outline-none' type="text" name='price' placeholder='Enter the price of the product' required onChange={handleChange} />
                 </div>
-                <div className='flex justify-center'>
-                    <button className='border-2 border-buttonBg w-fit text-primaryText bg-buttonBg hover:text-buttonBg rounded-lg p-2 text-xl cursor-pointer duration-200 hover:scale-110 hover:bg-primaryText' type="submit">
+                <div className='flex justify-evenly'>
+                    <button className='border-2 border-buttonBg w-2/5 text-primaryText bg-buttonBg hover:text-buttonBg rounded-lg p-2 text-xl cursor-pointer duration-200 hover:scale-110 hover:bg-primaryText' type="submit">
                         Add Product
+                    </button>
+                    <button className='border-2 border-red-600 w-2/5 text-primaryText bg-red-600 hover:text-red-600 rounded-lg p-2 text-xl cursor-pointer duration-200 hover:scale-110 hover:bg-primaryText' onClick={cancelAddProduct} type='reset' >
+                        Cancel
                     </button>
                 </div>
             </form>

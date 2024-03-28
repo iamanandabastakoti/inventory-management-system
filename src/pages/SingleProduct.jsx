@@ -26,7 +26,7 @@ const SingleProduct = () => {
     return (
         <div className='flex w-4/5 flex-wrap overflow-hidden'>
             <div className='flex w-full gap-4'>
-                <img className='w-[40%]' src={singleProductData.image} alt="" />
+                <img className='w-[40%] bg-gray-400 min-h-80' src={singleProductData.image} alt="" />
                 <div className='flex flex-col justify-start gap-10 p-2'>
                     <div className='flex flex-col gap-3'>
                         <h1 className='text-3xl font-semibold'>{singleProductData.name}</h1>

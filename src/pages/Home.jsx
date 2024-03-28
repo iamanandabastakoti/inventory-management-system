@@ -12,7 +12,7 @@ const Home = () => {
         fetchProducts();
     }, [])
     return (
-        <div className='flex flex-wrap justify-evenly gap-12'>
+        <div className='flex flex-wrap justify-start gap-[4%] mb-6'>
             {
                 products.map(({ id, name, image, category, price }) => {
                     return (
