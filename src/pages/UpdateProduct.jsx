@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const UpdateProduct = () => {
     const { productID } = useParams();
     const navigate = useNavigate();
@@ -31,6 +34,7 @@ const UpdateProduct = () => {
         e.preventDefault();
         const response = await axios.put(`https://${import.meta.env.VITE_API_KEY}.mockapi.io/products/${productID}`, newData)
         if (response.status === 200) {
+            toast.success('Product Updated');
             navigate('/');
         } else {
             alert('Error adding the product');
@@ -45,7 +49,7 @@ const UpdateProduct = () => {
             <form className='w-2/5 flex flex-col gap-4 p-1' onSubmit={updateProduct}>
                 <div className='flex flex-col gap-1'>
                     <label htmlFor="name">Name</label>
-                    <input className='border border-buttonBg rounded-lg w-full p-2 focus:outline-none' type="text" name='name' value={newData.name} placeholder='Enter the name of the product' required onChange={handleChange} />
+                    <input className='border border-buttonBg rounded-lg w-full p-2 focus:outline-none' type="text" name='name' value={newData.name} placeholder='Enter the name of the product' autoFocus required onChange={handleChange} />
                 </div>
                 <div className='flex flex-col gap-1'>
                     <label htmlFor="description">Description</label>
