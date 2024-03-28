@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Button from '../components/Button';
 
 const SingleProduct = () => {
@@ -36,7 +36,9 @@ const SingleProduct = () => {
                     </div>
                     <div className='flex gap-6 justify-center'>
                         <Button btnName={'Delete Product'} deleteBtn={true} btnFunc={deleteProduct} />
-                        <Button btnName={'Update Product'} deleteBtn={false} />
+                        <Link to={`/updateproduct/${productID}`} >
+                            <Button btnName={'Update Product'} deleteBtn={false} />
+                        </Link>
                     </div>
                 </div>
             </div>

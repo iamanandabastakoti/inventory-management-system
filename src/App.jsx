@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import SingleProduct from './pages/SingleProduct'
 import AddProduct from './pages/AddProduct'
+import UpdateProduct from './pages/UpdateProduct'
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path='/products/:productID' element={<SingleProduct />} />
           <Route path='/addproduct' element={<AddProduct />} />
+          <Route path='/updateproduct/:productID' element={<UpdateProduct />} />
         </Routes>
       </div>
     </div>
