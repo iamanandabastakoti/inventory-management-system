@@ -23,13 +23,15 @@ const AddProduct = () => {
     }
     const addProduct = async (e) => {
         e.preventDefault();
-        const response = await axios.post(`https://${import.meta.env.VITE_API_KEY}.mockapi.io/products`, data);
-        // console.log(response.status)
-        if (response.status === 201) {
-            toast.success('Product Added');
-            navigate('/');
-        } else {
-            alert('Error adding the product');
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_API_LINK}/products`, data);
+            // console.log(response.status)
+            if (response.status === 201) {
+                toast.success('Product Added');
+                navigate('/');
+            }
+        } catch (error) {
+            toast.error('Error Adding Product!');
         }
     }
     const cancelAddProduct = () => {

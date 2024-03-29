@@ -13,7 +13,7 @@ const UpdateProduct = () => {
     const [newData, setNewData] = useState([])
 
     const fetchOldData = async () => {
-        const response = await axios.get(`https://${import.meta.env.VITE_API_KEY}.mockapi.io/products/${productID}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_LINK}/products/${productID}`);
         // setOldData(response.data);
         setNewData(response.data)
     }
@@ -32,12 +32,16 @@ const UpdateProduct = () => {
 
     const updateProduct = async (e) => {
         e.preventDefault();
-        const response = await axios.put(`https://${import.meta.env.VITE_API_KEY}.mockapi.io/products/${productID}`, newData)
-        if (response.status === 200) {
-            toast.success('Product Updated');
-            navigate('/');
-        } else {
-            alert('Error adding the product');
+        try {
+            const response = await axios.put(`${import.meta.env.VITE_API_LINK}/products/${productID}`, newData)
+            if (response.status === 200) {
+                toast.success('Product Updated');
+                navigate('/');
+            } else {
+                alert('Error adding the product');
+            }
+        } catch (error) {
+            toast.error('Error Updating Product!');
         }
     }
     const cancelUpdate = () => {

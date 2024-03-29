@@ -12,16 +12,20 @@ const SingleProduct = () => {
     // console.log(productID)
     const [singleProductData, setSingleProductData] = useState([]);
     const fetchSingleProduct = async () => {
-        const response = await axios.get(`https://${import.meta.env.VITE_API_KEY}.mockapi.io/products/${productID}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_LINK}/products/${productID}`);
         setSingleProductData(response.data);
     }
     const deleteProduct = async () => {
-        const response = await axios.delete(`https://${import.meta.env.VITE_API_KEY}.mockapi.io/products/${productID}`);
-        if (response.status === 200) {
-            toast.success('Product Deleted');
-            navigate('/');
-        } else {
-            alert('Error deleting the product');
+        try {
+            const response = await axios.delete(`${import.meta.env.VITE_API_LINK}/products/${productID}`);
+            if (response.status === 200) {
+                toast.success('Product Deleted');
+                navigate('/');
+            } else {
+                alert('Error deleting the product');
+            }
+        } catch (error) {
+            toast.error('Error Updating Product!');
         }
     }
     useEffect(() => {

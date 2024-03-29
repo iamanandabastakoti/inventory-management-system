@@ -5,14 +5,14 @@ import ProductCard from '../components/ProductCard';
 const Home = () => {
     const [products, setProducts] = useState([]);
     const fetchProducts = async () => {
-        const response = await axios.get(`https://${import.meta.env.VITE_API_KEY}.mockapi.io/products`);
+        const response = await axios.get(`${import.meta.env.VITE_API_LINK}/products`);
         setProducts(response.data);
     }
     useEffect(() => {
         fetchProducts();
     }, [])
     return (
-        <div className='flex flex-wrap justify-start gap-[4%] pb-20'>
+        <div className='flex w-full flex-wrap justify-start gap-[4%] pb-20'>
             {
                 products.map(({ id, name, image, category, price }) => {
                     return (
