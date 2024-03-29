@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className='flex flex-col min-h-screen font-Poppins text-primaryBg'>
       <Navbar />
-      <div className='flex flex-wrap mt-16 py-10 px-6 justify-start gap-12'>
+      <div className=' min-h-[90vh] flex flex-wrap mt-16 py-10 px-6 justify-start gap-12'>
         <Routes>
           <Route index element={<Home />} />
           <Route path='/products/:productID' element={<SingleProduct />} />
